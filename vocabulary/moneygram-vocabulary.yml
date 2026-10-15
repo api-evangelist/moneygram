@@ -1,0 +1,73 @@
+generated: '2026-10-15'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/moneygram-openapi-generated.yml
+vocabulary:
+  name: MoneyGram Domain Vocabulary
+  description: 'Terms declared by MoneyGram''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-15'
+  terms:
+  - term: GetFxRateV1RatesResponse
+    definition: 'Object declared by the contract with fields: rates.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/GetFxRateV1RatesResponse
+  - term: GetOauthOauthidResponse
+    definition: 'Object declared by the contract with fields: refresh_token_expires_in, api_product_list, api_product_list_json, organization_name,
+      developer.email, token_type, issued_at, client_id, access_token, application_name, scope, expires_in. (2 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/GetOauthOauthidResponse
+  - term: PutPartnerconnectV1TransactionsTransactionidStatusRequest
+    definition: 'Object declared by the contract with fields: partnerTransactionId, reasonCode, partnerReasonMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PutPartnerconnectV1TransactionsTransactionidStatusRequest
+  - term: PutPartnerconnectV1TransactionsTransactionidStatusResponse
+    definition: 'Object declared by the contract with fields: status, message, mgiTransactionId, requestId, timestamp.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PutPartnerconnectV1TransactionsTransactionidStatusResponse
+  - term: GetReferenceDataV1V1IdResponse
+    definition: 'Object declared by the contract with fields: iso3Code, iso2Code, name, baseCurrency, sendActive, receiveActive, indicativeRateActive,
+      active, sendCurrencies, receiveCurrencies, phoneDialCodes.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/GetReferenceDataV1V1IdResponse
+  - term: PutTransactionsMgitransactionidStatusRequest
+    definition: 'Object declared by the contract with fields: partnerTransactionId, reasonCode, partnerReasonMessage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PutTransactionsMgitransactionidStatusRequest
+  - term: PutTransactionsMgitransactionidStatusResponse
+    definition: 'Object declared by the contract with fields: status, message, mgiTransactionId, requestId, timestamp.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PutTransactionsMgitransactionidStatusResponse
+  - term: PostV1AccountsValidateRequest
+    definition: 'Object declared by the contract with fields: sender.person.firstName, sender.person.middleName, sender.person.lastName, sender.person.secondLastName,
+      receiver.person.firstName, receiver.person.middleName, receiver.person.lastName, receiver.person.secondLastName, receiveAmount.value, receiveAmount.currencyCode,
+      accountCode, accountNumber. (2 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PostV1AccountsValidateRequest
+  - term: PostV1AccountsValidateResponse
+    definition: 'Object declared by the contract with fields: message, receiver.accountTitle, receiver.accountStatus, receiver.accountCurrency,
+      receiver.nameMatchPercentage, receiver.accountType, error.code, error.message, error.target.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PostV1AccountsValidateResponse
+  - term: PostV1TransfersRequest
+    definition: 'Object declared by the contract with fields: transaction.mgiTransactionId, transaction.receiveCountryCode, transaction.sendCountryCode,
+      transaction.receiveAmount.value, transaction.receiveAmount.currencyCode, transaction.sender.person.firstName, transaction.sender.person.middleName,
+      transaction.sender.person.lastName, transaction.sender.person.secondLastName, transaction.receiver.person.firstName, transaction.receiver.person.middleName,
+      transaction.receiver.person.lastName. (4 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PostV1TransfersRequest
+  - term: PostV1TransfersResponse
+    definition: 'Object declared by the contract with fields: response.responseCode, response.message, partnerTransactionId.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PostV1TransfersResponse

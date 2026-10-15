@@ -1,0 +1,680 @@
+openapi: 3.1.0
+info:
+  title: MoneyGram API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each
+    operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract
+    that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+paths:
+  /amend/v1/transactions:
+    get:
+      operationId: get_amend_v1_transactions
+      tags:
+      - Amend
+      summary: GET /amend/v1/transactions
+      x-source: https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+      parameters:
+      - name: agentPartnerId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: referenceNumber
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: targetAudience
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: userLanguage
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl --request GET  --url ''https://sandboxapi.moneygram.com/amend/v1/transactions?targetAudience=AGENT_FACING&userLanguage=EN-US&agentPartnerId=30150519&referenceNumber=93609598''  --header
+          ''X-MG-ClientRequestId: 4c79b06f-a2af-4859-82c8-28cbb0bf361b''  --header ''accept: application/json''  --header ''authorization: Bearer
+          7wD14cN6AqHfhQG2GTLGZwOXPDI1''
+
+          ```'
+  /fx-rate/v1/rates:
+    get:
+      operationId: get_fx_rate_v1_rates
+      tags:
+      - Fx Rate
+      summary: Retrieve a Rate
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+      parameters:
+      - name: originatingCountry
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The originating country for the FX rate lookup
+      - name: sendCurrency
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The currency being sent
+      - name: destinationCountry
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The destination country for the FX rate lookup
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFxRateV1RatesResponse'
+      x-evidence:
+        kind: documentation
+  /oauth/{oauthid}:
+    get:
+      operationId: get_oauth_oauthid
+      tags:
+      - Oauth
+      summary: Get Access Token
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+      parameters:
+      - name: oauthid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: grant_type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The value of this field should always be "client_credentials".
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Basic authentication header containing base64‑encoded client_id:client_secret.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOauthOauthidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at oauthId
+  /partnerconnect/v1/transactions/{transactionid}/status:
+    put:
+      operationId: put_partnerconnect_v1_transactions_transactionid_status
+      tags:
+      - Partnerconnect
+      summary: PUT /partnerconnect/v1/transactions/{transactionId}/status
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+      parameters:
+      - name: transactionid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutPartnerconnectV1TransactionsTransactionidStatusRequest'
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutPartnerconnectV1TransactionsTransactionidStatusResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X 'PUT'  'https://extadpartner.moneygram.com/partnerconnect/v1/transactions/12345678901234/status'  -H 'accept: application/json'\
+          \  -H 'Authorization: Basic dGVzdDp0ZXN0'  -H 'Content-Type: application/json'  -H 'X-MG-ClientRequestId: 8f14e45f-ceea-467a-a3a6-4e6b4d3a9c2f'\
+          \  -d '{\n \"partnerTransactionId\": \"PTX-2026-001234\",\n \"reasonCode\": \"01504\",\n \"partnerReasonMessage\": \"Transaction completed"
+  /reference-data/v1:
+    get:
+      operationId: get_reference_data_v1
+      tags:
+      - Reference Data
+      summary: Reference Data Introduction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /reference-data/v1/{v1id}:
+    get:
+      operationId: get_reference_data_v1_v1id
+      tags:
+      - Reference Data
+      summary: Retrieve Countries API GET /reference-data/v1/Country Retrieves supported values and metadata for countries
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+      parameters:
+      - name: v1id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: agentPartnerId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: targetAudience
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: userLanguage
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetReferenceDataV1V1IdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 7 example path(s) differing only at v1Id
+  /transactions/{mgitransactionid}/status:
+    put:
+      operationId: put_transactions_mgitransactionid_status
+      tags:
+      - Transactions
+      summary: The MoneyGram Status Webhook enables Account Deposit partners to asynchronously notify MoneyGram of transaction status changes
+        over a JSON REST interface.
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+      parameters:
+      - name: mgitransactionid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Content-Type
+        in: header
+        required: true
+        schema:
+          type: string
+        description: application/json
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Basic base64(username:password)
+      - name: X-MG-ClientRequestId
+        in: header
+        required: false
+        schema:
+          type: string
+        description: UUID (max 64 chars). Must be unique within a single session for unique requests.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutTransactionsMgitransactionidStatusRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutTransactionsMgitransactionidStatusResponse'
+      x-evidence:
+        kind: documentation
+  /transfer/v1/transactions/quote:
+    post:
+      operationId: post_transfer_v1_transactions_quote
+      tags:
+      - Transfer
+      summary: Quote a transaction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /transfer/v1/transactions/{transactionid}:
+    put:
+      operationId: put_transfer_v1_transactions_transactionid
+      tags:
+      - Transfer
+      summary: Update a transaction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+      parameters:
+      - name: transactionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /transfer/v1/transactions/{transactionid}/commit:
+    put:
+      operationId: put_transfer_v1_transactions_transactionid_commit
+      tags:
+      - Transfer
+      summary: Commit a transaction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+      parameters:
+      - name: transactionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/accounts/validate:
+    post:
+      operationId: post_v1_accounts_validate
+      tags:
+      - Accounts
+      summary: Confirm the receiver's account or wallet before disbursement, verify that the account is active, eligible to receive funds, matches
+        the intended beneficiary's name, and supports the transaction amount
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1AccountsValidateRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1AccountsValidateResponse'
+      x-evidence:
+        kind: documentation
+  /v1/transfers:
+    post:
+      operationId: post_v1_transfers
+      tags:
+      - Transfers
+      summary: Transfer Funds
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1TransfersRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1TransfersResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetFxRateV1RatesResponse:
+      type: object
+      properties:
+        rates:
+          type: array
+          description: List of FX rates for each service option available to the given destination country
+    GetOauthOauthidResponse:
+      type: object
+      properties:
+        refresh_token_expires_in:
+          type: string
+          description: Optional.
+        api_product_list:
+          type: array
+          description: Optional.
+        api_product_list_json:
+          type: array
+          description: Optional.
+        organization_name:
+          type: string
+          description: Optional.
+        developer.email:
+          type: string
+          description: Optional.
+        token_type:
+          type: string
+          description: Optional.
+        issued_at:
+          type: string
+          description: Optional.
+        client_id:
+          type: string
+          description: Optional.
+        access_token:
+          type: string
+          description: Required.
+        application_name:
+          type: string
+          description: Optional.
+        scope:
+          type: string
+          description: Optional.
+        expires_in:
+          type: integer
+          description: Required. Number of seconds until the token expires.
+        refresh_count:
+          type: integer
+          description: Optional.
+        status:
+          type: string
+          description: Optional.
+    PutPartnerconnectV1TransactionsTransactionidStatusRequest:
+      type: object
+      properties:
+        partnerTransactionId:
+          type: string
+        reasonCode:
+          type: string
+        partnerReasonMessage:
+          type: string
+    PutPartnerconnectV1TransactionsTransactionidStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        mgiTransactionId:
+          type: string
+        requestId:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    GetReferenceDataV1V1IdResponse:
+      type: object
+      properties:
+        iso3Code:
+          type: string
+        iso2Code:
+          type: string
+        name:
+          type: string
+        baseCurrency:
+          type: string
+        sendActive:
+          type: boolean
+        receiveActive:
+          type: boolean
+        indicativeRateActive:
+          type: boolean
+        active:
+          type: boolean
+        sendCurrencies:
+          type: array
+          items:
+            type: string
+        receiveCurrencies:
+          type: array
+          items:
+            type: string
+        phoneDialCodes:
+          type: array
+          items:
+            type: string
+    PutTransactionsMgitransactionidStatusRequest:
+      type: object
+      properties:
+        partnerTransactionId:
+          type: string
+          description: 'Partner''s unique transaction identifier. If the partner uses the MoneyGram transaction ID, pass the same value here.
+            Pattern: ^[A-Za-z0-9_\-]{1,50}$ . Also serves as the idempotency key.'
+        reasonCode:
+          type: string
+          description: Reason code for the transaction status. Must be a valid 5-digit code from the published catalog.
+        partnerReasonMessage:
+          type: string
+          description: Partner's free-text reason message or description, for audit and logging.
+      required:
+      - partnerTransactionId
+      - reasonCode
+      - partnerReasonMessage
+    PutTransactionsMgitransactionidStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the update operation, e.g. SUCCESS.
+        message:
+          type: string
+          description: Human-readable success message.
+        mgiTransactionId:
+          type: string
+          description: MoneyGram Transaction ID that was updated.
+        requestId:
+          type: string
+          description: Server-generated correlation ID.
+        timestamp:
+          type: string
+          description: UTC timestamp (ISO 8601) when the update was processed.
+    PostV1AccountsValidateRequest:
+      type: object
+      properties:
+        sender.person.firstName:
+          type: string
+          description: Sender first name.
+        sender.person.middleName:
+          type: string
+          description: Sender middle name.
+        sender.person.lastName:
+          type: string
+          description: Sender last name.
+        sender.person.secondLastName:
+          type: string
+          description: Sender second last name.
+        receiver.person.firstName:
+          type: string
+          description: Beneficiary first name.
+        receiver.person.middleName:
+          type: string
+          description: Beneficiary middle name.
+        receiver.person.lastName:
+          type: string
+          description: Beneficiary last name.
+        receiver.person.secondLastName:
+          type: string
+          description: Beneficiary second last name.
+        receiveAmount.value:
+          type: number
+          description: Receive amount in transacting currency. Must be greater than 0.
+        receiveAmount.currencyCode:
+          type: string
+          description: ISO 4217 currency code.
+        accountCode:
+          type: string
+          description: Bank code, routing code, wallet provider, or IFSC code — used to route the credit to the beneficiary institution.
+        accountNumber:
+          type: string
+          description: Beneficiary bank account or wallet number. Format agreed bilaterally with the partner.
+        receiveCountryCode:
+          type: string
+          description: ISO 3166-1 alpha-3 country code where funds are credited.
+        additionalData:
+          type: array
+          description: Key‑value pairs for regulatory and routing purposes. All supported keys are always included (values may be empty).
+      required:
+      - receiver.person.firstName
+      - receiver.person.lastName
+      - receiveAmount.value
+      - receiveAmount.currencyCode
+      - accountCode
+      - accountNumber
+      - receiveCountryCode
+    PostV1AccountsValidateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Optional response message.
+        receiver.accountTitle:
+          type: string
+          description: Name associated with the account.
+        receiver.accountStatus:
+          type: string
+          description: Account status.
+        receiver.accountCurrency:
+          type: string
+          description: Currency of the account.
+        receiver.nameMatchPercentage:
+          type: string
+          description: Percentage match between the beneficiary name and the institution's records.
+        receiver.accountType:
+          type: string
+          description: Type of account.
+        error.code:
+          type: string
+          description: MoneyGram-defined error code.
+        error.message:
+          type: string
+          description: Human‑readable error message.
+        error.target:
+          type: string
+          description: Field causing the error.
+    PostV1TransfersRequest:
+      type: object
+      properties:
+        transaction.mgiTransactionId:
+          type: string
+          description: 'Unique MoneyGram transaction identifier. Format: XXXXXXXX0000MMddYYYY'
+        transaction.receiveCountryCode:
+          type: string
+          description: ISO 3166-1 alpha-3 country code where funds are credited.
+        transaction.sendCountryCode:
+          type: string
+          description: ISO 3166-1 alpha-3 country code where funds originate.
+        transaction.receiveAmount.value:
+          type: number
+          description: Transaction receive amount.
+        transaction.receiveAmount.currencyCode:
+          type: string
+          description: ISO 4217 currency code.
+        transaction.sender.person.firstName:
+          type: string
+          description: Sender first name.
+        transaction.sender.person.middleName:
+          type: string
+          description: Sender middle name.
+        transaction.sender.person.lastName:
+          type: string
+          description: Sender last name.
+        transaction.sender.person.secondLastName:
+          type: string
+          description: Sender second last name.
+        transaction.receiver.person.firstName:
+          type: string
+          description: Beneficiary first name.
+        transaction.receiver.person.middleName:
+          type: string
+          description: Beneficiary middle name.
+        transaction.receiver.person.lastName:
+          type: string
+          description: Beneficiary last name.
+        transaction.receiver.person.secondLastName:
+          type: string
+          description: Beneficiary second last name.
+        accountCode:
+          type: string
+          description: Bank code, routing code, wallet provider name, or IFSC.
+        accountNumber:
+          type: string
+          description: Beneficiary account or wallet number.
+        transaction.additionalData[]:
+          type: array
+          description: Supplementary key‑value pairs required for certain corridors or regulations.
+      required:
+      - transaction.mgiTransactionId
+      - transaction.receiveCountryCode
+      - transaction.sendCountryCode
+      - transaction.receiveAmount.value
+      - transaction.receiveAmount.currencyCode
+      - transaction.sender.person.firstName
+      - transaction.sender.person.lastName
+      - transaction.receiver.person.firstName
+      - transaction.receiver.person.lastName
+      - accountCode
+      - accountNumber
+    PostV1TransfersResponse:
+      type: object
+      properties:
+        response.responseCode:
+          type: string
+          description: Transaction processing status.
+        response.message:
+          type: string
+          description: Human‑readable status message.
+        partnerTransactionId:
+          type: string
+          description: Optional partner transaction reference.
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+- bearer: []
+tags:
+- name: Accounts
+- name: Amend
+- name: Fx Rate
+- name: Oauth
+- name: Partnerconnect
+- name: Reference Data
+- name: Transactions
+- name: Transfer
+- name: Transfers

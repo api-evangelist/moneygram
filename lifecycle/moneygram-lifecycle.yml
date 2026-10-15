@@ -1,0 +1,12 @@
+generated: '2026-10-15'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developer.moneygram.com/moneygram-developer/docs/versioning
+sources:
+- https://developer.moneygram.com/moneygram-developer/docs/versioning
+versioning:
+  how_selected: absent
+deprecation:
+  notice_period: 6 months
+status_page: null
+docs: https://developer.moneygram.com/moneygram-developer/docs/versioning

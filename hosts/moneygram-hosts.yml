@@ -1,0 +1,129 @@
+generated: '2026-10-15'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 9
+  own: 9
+  other_domain: 0
+  platform: 0
+  roles:
+  - api
+  - other
+  - portal
+  - website
+hosts:
+- host: agentreporting.moneygram.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: moneygram.com
+  role: other
+  relation: own
+- host: api.moneygram.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: moneygram.com
+  role: api
+  relation: own
+- host: business.moneygram.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: moneygram.com
+  role: other
+  relation: own
+- host: company.moneygram.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: moneygram.com
+  role: other
+  relation: own
+- host: corporate.moneygram.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Newsroom
+  - Leadership
+  serves: []
+  registrable_domain: moneygram.com
+  role: other
+  relation: own
+- host: developer.moneygram.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  registrable_domain: moneygram.com
+  role: portal
+  relation: own
+- host: sandboxapi.moneygram.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: moneygram.com
+  role: other
+  relation: own
+- host: trust.moneygram.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - TrustCenter
+  serves: []
+  registrable_domain: moneygram.com
+  role: other
+  relation: own
+- host: www.moneygram.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Login
+  - Website
+  - Support
+  - Blog
+  - TermsOfService
+  - PrivacyPolicy
+  serves:
+  - cdn
+  - hosting
+  vendor: cloudflare
+  registrable_domain: moneygram.com
+  role: website
+  relation: own

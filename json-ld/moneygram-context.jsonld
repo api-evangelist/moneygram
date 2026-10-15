@@ -1,0 +1,307 @@
+{
+  "@context": {
+    "@vocab": "https://moneygram.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "moneygram": "https://moneygram.com/schema#",
+    "GetFxRateV1RatesResponse": "moneygram:GetFxRateV1RatesResponse",
+    "rates": {
+      "@id": "moneygram:rates",
+      "@container": "@list"
+    },
+    "GetOauthOauthidResponse": "moneygram:GetOauthOauthidResponse",
+    "refresh_token_expires_in": {
+      "@id": "moneygram:refresh_token_expires_in",
+      "@type": "xsd:string"
+    },
+    "api_product_list": {
+      "@id": "moneygram:api_product_list",
+      "@container": "@list"
+    },
+    "api_product_list_json": {
+      "@id": "moneygram:api_product_list_json",
+      "@container": "@list"
+    },
+    "organization_name": {
+      "@id": "moneygram:organization_name",
+      "@type": "xsd:string"
+    },
+    "developer.email": {
+      "@id": "moneygram:developer.email",
+      "@type": "xsd:string"
+    },
+    "token_type": {
+      "@id": "moneygram:token_type",
+      "@type": "xsd:string"
+    },
+    "issued_at": {
+      "@id": "moneygram:issued_at",
+      "@type": "xsd:string"
+    },
+    "client_id": {
+      "@id": "moneygram:client_id",
+      "@type": "xsd:string"
+    },
+    "access_token": {
+      "@id": "moneygram:access_token",
+      "@type": "xsd:string"
+    },
+    "application_name": {
+      "@id": "moneygram:application_name",
+      "@type": "xsd:string"
+    },
+    "scope": {
+      "@id": "moneygram:scope",
+      "@type": "xsd:string"
+    },
+    "expires_in": {
+      "@id": "moneygram:expires_in",
+      "@type": "xsd:integer"
+    },
+    "refresh_count": {
+      "@id": "moneygram:refresh_count",
+      "@type": "xsd:integer"
+    },
+    "status": {
+      "@id": "moneygram:status",
+      "@type": "xsd:string"
+    },
+    "PutPartnerconnectV1TransactionsTransactionidStatusRequest": "moneygram:PutPartnerconnectV1TransactionsTransactionidStatusRequest",
+    "partnerTransactionId": {
+      "@id": "moneygram:partnerTransactionId",
+      "@type": "xsd:string"
+    },
+    "reasonCode": {
+      "@id": "moneygram:reasonCode",
+      "@type": "xsd:string"
+    },
+    "partnerReasonMessage": {
+      "@id": "moneygram:partnerReasonMessage",
+      "@type": "xsd:string"
+    },
+    "PutPartnerconnectV1TransactionsTransactionidStatusResponse": "moneygram:PutPartnerconnectV1TransactionsTransactionidStatusResponse",
+    "message": {
+      "@id": "moneygram:message",
+      "@type": "xsd:string"
+    },
+    "mgiTransactionId": {
+      "@id": "moneygram:mgiTransactionId",
+      "@type": "xsd:string"
+    },
+    "requestId": {
+      "@id": "moneygram:requestId",
+      "@type": "xsd:string"
+    },
+    "timestamp": {
+      "@id": "moneygram:timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "GetReferenceDataV1V1IdResponse": "moneygram:GetReferenceDataV1V1IdResponse",
+    "iso3Code": {
+      "@id": "moneygram:iso3Code",
+      "@type": "xsd:string"
+    },
+    "iso2Code": {
+      "@id": "moneygram:iso2Code",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "moneygram:name",
+      "@type": "xsd:string"
+    },
+    "baseCurrency": {
+      "@id": "moneygram:baseCurrency",
+      "@type": "xsd:string"
+    },
+    "sendActive": {
+      "@id": "moneygram:sendActive",
+      "@type": "xsd:boolean"
+    },
+    "receiveActive": {
+      "@id": "moneygram:receiveActive",
+      "@type": "xsd:boolean"
+    },
+    "indicativeRateActive": {
+      "@id": "moneygram:indicativeRateActive",
+      "@type": "xsd:boolean"
+    },
+    "active": {
+      "@id": "moneygram:active",
+      "@type": "xsd:boolean"
+    },
+    "sendCurrencies": {
+      "@id": "moneygram:sendCurrencies",
+      "@container": "@list"
+    },
+    "receiveCurrencies": {
+      "@id": "moneygram:receiveCurrencies",
+      "@container": "@list"
+    },
+    "phoneDialCodes": {
+      "@id": "moneygram:phoneDialCodes",
+      "@container": "@list"
+    },
+    "PutTransactionsMgitransactionidStatusRequest": "moneygram:PutTransactionsMgitransactionidStatusRequest",
+    "PutTransactionsMgitransactionidStatusResponse": "moneygram:PutTransactionsMgitransactionidStatusResponse",
+    "PostV1AccountsValidateRequest": "moneygram:PostV1AccountsValidateRequest",
+    "sender.person.firstName": {
+      "@id": "moneygram:sender.person.firstName",
+      "@type": "xsd:string"
+    },
+    "sender.person.middleName": {
+      "@id": "moneygram:sender.person.middleName",
+      "@type": "xsd:string"
+    },
+    "sender.person.lastName": {
+      "@id": "moneygram:sender.person.lastName",
+      "@type": "xsd:string"
+    },
+    "sender.person.secondLastName": {
+      "@id": "moneygram:sender.person.secondLastName",
+      "@type": "xsd:string"
+    },
+    "receiver.person.firstName": {
+      "@id": "moneygram:receiver.person.firstName",
+      "@type": "xsd:string"
+    },
+    "receiver.person.middleName": {
+      "@id": "moneygram:receiver.person.middleName",
+      "@type": "xsd:string"
+    },
+    "receiver.person.lastName": {
+      "@id": "moneygram:receiver.person.lastName",
+      "@type": "xsd:string"
+    },
+    "receiver.person.secondLastName": {
+      "@id": "moneygram:receiver.person.secondLastName",
+      "@type": "xsd:string"
+    },
+    "receiveAmount.value": {
+      "@id": "moneygram:receiveAmount.value",
+      "@type": "xsd:decimal"
+    },
+    "receiveAmount.currencyCode": {
+      "@id": "moneygram:receiveAmount.currencyCode",
+      "@type": "xsd:string"
+    },
+    "accountCode": {
+      "@id": "moneygram:accountCode",
+      "@type": "xsd:string"
+    },
+    "accountNumber": {
+      "@id": "moneygram:accountNumber",
+      "@type": "xsd:string"
+    },
+    "receiveCountryCode": {
+      "@id": "moneygram:receiveCountryCode",
+      "@type": "xsd:string"
+    },
+    "additionalData": {
+      "@id": "moneygram:additionalData",
+      "@container": "@list"
+    },
+    "PostV1AccountsValidateResponse": "moneygram:PostV1AccountsValidateResponse",
+    "receiver.accountTitle": {
+      "@id": "moneygram:receiver.accountTitle",
+      "@type": "xsd:string"
+    },
+    "receiver.accountStatus": {
+      "@id": "moneygram:receiver.accountStatus",
+      "@type": "xsd:string"
+    },
+    "receiver.accountCurrency": {
+      "@id": "moneygram:receiver.accountCurrency",
+      "@type": "xsd:string"
+    },
+    "receiver.nameMatchPercentage": {
+      "@id": "moneygram:receiver.nameMatchPercentage",
+      "@type": "xsd:string"
+    },
+    "receiver.accountType": {
+      "@id": "moneygram:receiver.accountType",
+      "@type": "xsd:string"
+    },
+    "error.code": {
+      "@id": "moneygram:error.code",
+      "@type": "xsd:string"
+    },
+    "error.message": {
+      "@id": "moneygram:error.message",
+      "@type": "xsd:string"
+    },
+    "error.target": {
+      "@id": "moneygram:error.target",
+      "@type": "xsd:string"
+    },
+    "PostV1TransfersRequest": "moneygram:PostV1TransfersRequest",
+    "transaction.mgiTransactionId": {
+      "@id": "moneygram:transaction.mgiTransactionId",
+      "@type": "xsd:string"
+    },
+    "transaction.receiveCountryCode": {
+      "@id": "moneygram:transaction.receiveCountryCode",
+      "@type": "xsd:string"
+    },
+    "transaction.sendCountryCode": {
+      "@id": "moneygram:transaction.sendCountryCode",
+      "@type": "xsd:string"
+    },
+    "transaction.receiveAmount.value": {
+      "@id": "moneygram:transaction.receiveAmount.value",
+      "@type": "xsd:decimal"
+    },
+    "transaction.receiveAmount.currencyCode": {
+      "@id": "moneygram:transaction.receiveAmount.currencyCode",
+      "@type": "xsd:string"
+    },
+    "transaction.sender.person.firstName": {
+      "@id": "moneygram:transaction.sender.person.firstName",
+      "@type": "xsd:string"
+    },
+    "transaction.sender.person.middleName": {
+      "@id": "moneygram:transaction.sender.person.middleName",
+      "@type": "xsd:string"
+    },
+    "transaction.sender.person.lastName": {
+      "@id": "moneygram:transaction.sender.person.lastName",
+      "@type": "xsd:string"
+    },
+    "transaction.sender.person.secondLastName": {
+      "@id": "moneygram:transaction.sender.person.secondLastName",
+      "@type": "xsd:string"
+    },
+    "transaction.receiver.person.firstName": {
+      "@id": "moneygram:transaction.receiver.person.firstName",
+      "@type": "xsd:string"
+    },
+    "transaction.receiver.person.middleName": {
+      "@id": "moneygram:transaction.receiver.person.middleName",
+      "@type": "xsd:string"
+    },
+    "transaction.receiver.person.lastName": {
+      "@id": "moneygram:transaction.receiver.person.lastName",
+      "@type": "xsd:string"
+    },
+    "transaction.receiver.person.secondLastName": {
+      "@id": "moneygram:transaction.receiver.person.secondLastName",
+      "@type": "xsd:string"
+    },
+    "PostV1TransfersResponse": "moneygram:PostV1TransfersResponse",
+    "response.responseCode": {
+      "@id": "moneygram:response.responseCode",
+      "@type": "xsd:string"
+    },
+    "response.message": {
+      "@id": "moneygram:response.message",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "MoneyGram API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects MoneyGram's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-15) from openapi/_ae-authored/moneygram-openapi-generated.yml.",
+  "dcterms:created": "2026-10-15",
+  "dcterms:source": [
+    "openapi/_ae-authored/moneygram-openapi-generated.yml"
+  ]
+}

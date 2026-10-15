@@ -1,0 +1,18 @@
+generated: '2026-10-15'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developer.moneygram.com/moneygram-developer/recipes/oauth-api-retrieve-an-access-token
+sources:
+- https://developer.moneygram.com/moneygram-developer/recipes/oauth-api-retrieve-an-access-token
+- https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+description: Authentication for MoneyGram APIs uses OAuth 2.0 client credentials flow with HTTP Basic authentication.
+schemes:
+- type: http-basic
+  name: Basic
+  evidence: MoneyGram uses the OAuth 2.0 framework. The application must use their OAuth client credentials to generate an accesstoken and pass
+    it as a header value in API HTTP calls.
+  location: header
+  header: Authorization
+  token_url: https://api.moneygram.com/oauth/accesstoken?grant_type=client_credentials
+  how_to_obtain: Client ID and secret are provided by MoneyGram after partnership.
+docs: https://developer.moneygram.com/moneygram-developer/recipes/oauth-api-retrieve-an-access-token

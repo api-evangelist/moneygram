@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/moneygram/main/json-schema/moneygram-post-v1-accounts-validate-request-schema.json",
+  "title": "PostV1AccountsValidateRequest",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PostV1AccountsValidateRequest",
+  "type": "object",
+  "properties": {
+    "sender.person.firstName": {
+      "type": "string",
+      "description": "Sender first name."
+    },
+    "sender.person.middleName": {
+      "type": "string",
+      "description": "Sender middle name."
+    },
+    "sender.person.lastName": {
+      "type": "string",
+      "description": "Sender last name."
+    },
+    "sender.person.secondLastName": {
+      "type": "string",
+      "description": "Sender second last name."
+    },
+    "receiver.person.firstName": {
+      "type": "string",
+      "description": "Beneficiary first name."
+    },
+    "receiver.person.middleName": {
+      "type": "string",
+      "description": "Beneficiary middle name."
+    },
+    "receiver.person.lastName": {
+      "type": "string",
+      "description": "Beneficiary last name."
+    },
+    "receiver.person.secondLastName": {
+      "type": "string",
+      "description": "Beneficiary second last name."
+    },
+    "receiveAmount.value": {
+      "type": "number",
+      "description": "Receive amount in transacting currency. Must be greater than 0."
+    },
+    "receiveAmount.currencyCode": {
+      "type": "string",
+      "description": "ISO 4217 currency code."
+    },
+    "accountCode": {
+      "type": "string",
+      "description": "Bank code, routing code, wallet provider, or IFSC code — used to route the credit to the beneficiary institution."
+    },
+    "accountNumber": {
+      "type": "string",
+      "description": "Beneficiary bank account or wallet number. Format agreed bilaterally with the partner."
+    },
+    "receiveCountryCode": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-3 country code where funds are credited."
+    },
+    "additionalData": {
+      "type": "array",
+      "description": "Key‑value pairs for regulatory and routing purposes. All supported keys are always included (values may be empty)."
+    }
+  },
+  "required": [
+    "receiver.person.firstName",
+    "receiver.person.lastName",
+    "receiveAmount.value",
+    "receiveAmount.currencyCode",
+    "accountCode",
+    "accountNumber",
+    "receiveCountryCode"
+  ]
+}

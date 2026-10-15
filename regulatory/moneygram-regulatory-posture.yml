@@ -1,0 +1,18 @@
+generated: '2026-10-15'
+source: https://www.moneygram.com/us/en/privacy-center
+method: probed
+signals:
+  data_subject_request:
+    - evidence:
+        source: https://www.moneygram.com/us/en/privacy-center
+        http_status: 200
+        fetched: true
+        quote: "Exercise your data subject rights"
+        note: Indicates that MoneyGram provides a process for data subject requests.
+  data_retention:
+    - evidence:
+        source: https://www.moneygram.com/us/en/privacy-center
+        http_status: 200
+        fetched: true
+        quote: "How long will MoneyGram keep my data for?"
+        note: FAQ entry about data retention period.

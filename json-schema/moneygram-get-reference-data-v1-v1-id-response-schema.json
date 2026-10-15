@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/moneygram/main/json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json",
+  "title": "GetReferenceDataV1V1IdResponse",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/GetReferenceDataV1V1IdResponse",
+  "type": "object",
+  "properties": {
+    "iso3Code": {
+      "type": "string"
+    },
+    "iso2Code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "baseCurrency": {
+      "type": "string"
+    },
+    "sendActive": {
+      "type": "boolean"
+    },
+    "receiveActive": {
+      "type": "boolean"
+    },
+    "indicativeRateActive": {
+      "type": "boolean"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "sendCurrencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receiveCurrencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "phoneDialCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,23 +1,129 @@
 aid: moneygram
+
 name: MoneyGram
-description: 'MoneyGram is a company surfaced via the API Evangelist harvest backlog (source: tag-qc)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://images.ctfassets.net/toryt1tt0roy/7MomRYb1LV2WMrv0u49W3u/78ea6116322787a764201f68e3802091/MoneyGram_Social_Share_Glyph_New.png
+
+description: MoneyGram is a global money transfer and payment services company, enabling individuals and businesses to send and receive funds
+  across more than 200 countries and territories. Founded in 1940, MoneyGram offers online, in‑app, and in‑person transfer options, with a network
+  of agents and retail locations worldwide. The platform emphasizes security, competitive exchange rates, and multiple payout methods, including
+  bank deposits, cash pickup, and digital wallets.
+
 url: https://raw.githubusercontent.com/api-evangelist/moneygram/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:tag-qc
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-15 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-14'
+
 modified: '2026-10-14'
+
 tags:
-- Company
-apis: []
+- Money
+- Payments
+- Transfer
+- FinTech
+- Global
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Spectral
+  url: rules/moneygram-rules.yml
+- type: JSONLD
+  url: json-ld/moneygram-context.jsonld
+- type: Vocabulary
+  url: vocabulary/moneygram-vocabulary.yml
+- type: DataModel
+  url: data-model/moneygram-data-model.yml
+- type: Authentication
+  url: authentication/moneygram-authentication.yml
+- type: Deprecation
+  url: lifecycle/moneygram-lifecycle.yml
+- type: Lifecycle
+  url: lifecycle/moneygram-lifecycle.yml
+- type: Conformance
+  url: conformance/moneygram-conformance.yml
+- type: WellKnown
+  url: well-known/moneygram-well-known.yml
+- type: Hosts
+  url: hosts/moneygram-hosts.yml
+- type: Vendors
+  url: vendors/moneygram-vendors.yml
+- type: TrustCenter
+  url: https://trust.moneygram.com/
+- type: Newsroom
+  url: https://corporate.moneygram.com/news
+- type: Login
+  url: https://www.moneygram.com/gb/en/log-in
+- type: Leadership
+  url: https://corporate.moneygram.com/leadership
+- type: DomainSecurity
+  url: security/moneygram-domain-security.yml
 - type: Website
   url: https://www.moneygram.com
+- type: DeveloperPortal
+  url: https://developer.moneygram.com
+- type: Documentation
+  url: https://developer.moneygram.com/moneygram-developer/docs
+- type: APIReference
+  url: https://developer.moneygram.com/moneygram-developer/reference
+- type: GettingStarted
+  url: https://developer.moneygram.com/moneygram-developer/docs/get-started
+- type: Support
+  url: https://www.moneygram.com/us/en/help-center
+- type: Blog
+  url: https://www.moneygram.com/blog
+- type: TermsOfService
+  url: https://www.moneygram.com/us/en/help-center/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.moneygram.com/us/en/privacy-center
+
+apis:
+- aid: moneygram:moneygram-api
+  name: MoneyGram API
+  description: 'MoneyGram API as documented publicly: 12 operations. Contract generated from the documentation by API Evangelist (2026-10-15);
+    not the provider''s own document.'
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/moneygram-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: Developer portal pages render only via JavaScript, no machine‑readable spec was found.
+  evidence:
+  - url: https://www.moneygram.com
+    status: 200
+  checked: '2026-10-15'
+x-enrichment:
+  date: '2026-10-15'
+  status: enriched
+  artifacts_added: 21
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

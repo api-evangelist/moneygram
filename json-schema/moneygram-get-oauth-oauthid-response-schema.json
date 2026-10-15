@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/moneygram/main/json-schema/moneygram-get-oauth-oauthid-response-schema.json",
+  "title": "GetOauthOauthidResponse",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/GetOauthOauthidResponse",
+  "type": "object",
+  "properties": {
+    "refresh_token_expires_in": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "api_product_list": {
+      "type": "array",
+      "description": "Optional."
+    },
+    "api_product_list_json": {
+      "type": "array",
+      "description": "Optional."
+    },
+    "organization_name": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "developer.email": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "token_type": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "issued_at": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "access_token": {
+      "type": "string",
+      "description": "Required."
+    },
+    "application_name": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "scope": {
+      "type": "string",
+      "description": "Optional."
+    },
+    "expires_in": {
+      "type": "integer",
+      "description": "Required. Number of seconds until the token expires."
+    },
+    "refresh_count": {
+      "type": "integer",
+      "description": "Optional."
+    },
+    "status": {
+      "type": "string",
+      "description": "Optional."
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/moneygram/main/json-schema/moneygram-post-v1-transfers-request-schema.json",
+  "title": "PostV1TransfersRequest",
+  "x-generated": "2026-10-15",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/moneygram-openapi-generated.yml#/components/schemas/PostV1TransfersRequest",
+  "type": "object",
+  "properties": {
+    "transaction.mgiTransactionId": {
+      "type": "string",
+      "description": "Unique MoneyGram transaction identifier. Format: XXXXXXXX0000MMddYYYY"
+    },
+    "transaction.receiveCountryCode": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-3 country code where funds are credited."
+    },
+    "transaction.sendCountryCode": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-3 country code where funds originate."
+    },
+    "transaction.receiveAmount.value": {
+      "type": "number",
+      "description": "Transaction receive amount."
+    },
+    "transaction.receiveAmount.currencyCode": {
+      "type": "string",
+      "description": "ISO 4217 currency code."
+    },
+    "transaction.sender.person.firstName": {
+      "type": "string",
+      "description": "Sender first name."
+    },
+    "transaction.sender.person.middleName": {
+      "type": "string",
+      "description": "Sender middle name."
+    },
+    "transaction.sender.person.lastName": {
+      "type": "string",
+      "description": "Sender last name."
+    },
+    "transaction.sender.person.secondLastName": {
+      "type": "string",
+      "description": "Sender second last name."
+    },
+    "transaction.receiver.person.firstName": {
+      "type": "string",
+      "description": "Beneficiary first name."
+    },
+    "transaction.receiver.person.middleName": {
+      "type": "string",
+      "description": "Beneficiary middle name."
+    },
+    "transaction.receiver.person.lastName": {
+      "type": "string",
+      "description": "Beneficiary last name."
+    },
+    "transaction.receiver.person.secondLastName": {
+      "type": "string",
+      "description": "Beneficiary second last name."
+    },
+    "accountCode": {
+      "type": "string",
+      "description": "Bank code, routing code, wallet provider name, or IFSC."
+    },
+    "accountNumber": {
+      "type": "string",
+      "description": "Beneficiary account or wallet number."
+    },
+    "transaction.additionalData[]": {
+      "type": "array",
+      "description": "Supplementary key‑value pairs required for certain corridors or regulations."
+    }
+  },
+  "required": [
+    "transaction.mgiTransactionId",
+    "transaction.receiveCountryCode",
+    "transaction.sendCountryCode",
+    "transaction.receiveAmount.value",
+    "transaction.receiveAmount.currencyCode",
+    "transaction.sender.person.firstName",
+    "transaction.sender.person.lastName",
+    "transaction.receiver.person.firstName",
+    "transaction.receiver.person.lastName",
+    "accountCode",
+    "accountNumber"
+  ]
+}
