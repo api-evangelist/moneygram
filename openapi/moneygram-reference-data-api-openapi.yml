@@ -1,0 +1,122 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram Reference Data API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: Reference Data
+paths:
+  /reference-data/v1:
+    get:
+      operationId: get_reference_data_v1
+      tags:
+      - Reference Data
+      summary: Reference Data Introduction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /reference-data/v1/{v1id}:
+    get:
+      operationId: get_reference_data_v1_v1id
+      tags:
+      - Reference Data
+      summary: Retrieve Countries API GET /reference-data/v1/Country Retrieves supported…
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+      parameters:
+      - name: v1id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: agentPartnerId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: targetAudience
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: userLanguage
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetReferenceDataV1V1IdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 7 example path(s) differing only at v1Id
+components:
+  schemas:
+    GetReferenceDataV1V1IdResponse:
+      type: object
+      properties:
+        iso3Code:
+          type: string
+        iso2Code:
+          type: string
+        name:
+          type: string
+        baseCurrency:
+          type: string
+        sendActive:
+          type: boolean
+        receiveActive:
+          type: boolean
+        indicativeRateActive:
+          type: boolean
+        active:
+          type: boolean
+        sendCurrencies:
+          type: array
+          items:
+            type: string
+        receiveCurrencies:
+          type: array
+          items:
+            type: string
+        phoneDialCodes:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

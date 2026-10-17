@@ -90,16 +90,16 @@ common:
   url: https://www.moneygram.com/us/en/privacy-center
 
 apis:
-- aid: moneygram:moneygram-api
-  name: MoneyGram API
-  description: 'MoneyGram API as documented publicly: 12 operations. Contract generated from the documentation by API Evangelist (2026-10-15);
-    not the provider''s own document.'
+- aid: moneygram:moneygram-accounts-api
+  name: MoneyGram Accounts API
+  description: The Accounts API from MoneyGram — 1 operation(s) for accounts.
   humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
   baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Accounts
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/moneygram-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/moneygram-accounts-api-openapi.yml
   - type: JSONSchema
     url: json-schema/moneygram-post-v1-transfers-request-schema.json
   - type: JSONSchema
@@ -112,7 +112,182 @@ apis:
     url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
   - type: JSONSchema
     url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
-
+- aid: moneygram:moneygram-amend-api
+  name: MoneyGram Amend API
+  description: The Amend API from MoneyGram — 1 operation(s) for amend.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Amend
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-amend-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+- aid: moneygram:moneygram-fx-rate-api
+  name: MoneyGram Fx Rate API
+  description: The Fx Rate API from MoneyGram — 1 operation(s) for fx rate.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Fx Rate
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-fx-rate-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+- aid: moneygram:moneygram-oauth-api
+  name: MoneyGram OAuth API
+  description: The Oauth API from MoneyGram — 1 operation(s) for oauth.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-oauth-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+- aid: moneygram:moneygram-partnerconnect-api
+  name: MoneyGram Partnerconnect API
+  description: The Partnerconnect API from MoneyGram — 1 operation(s) for partnerconnect.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Partnerconnect
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-partnerconnect-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+- aid: moneygram:moneygram-reference-data-api
+  name: MoneyGram Reference Data API
+  description: The Reference Data API from MoneyGram — 2 operation(s) for reference data.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Reference Data
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-reference-data-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+- aid: moneygram:moneygram-transactions-api
+  name: MoneyGram Transactions API
+  description: The Transactions API from MoneyGram — 1 operation(s) for transactions.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-transactions-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+- aid: moneygram:moneygram-transfer-api
+  name: MoneyGram Transfer API
+  description: The Transfer API from MoneyGram — 3 operation(s) for transfer.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Transfer
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-transfer-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
+- aid: moneygram:moneygram-transfers-api
+  name: MoneyGram Transfers API
+  description: The Transfers API from MoneyGram — 1 operation(s) for transfers.
+  humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  baseURL: https://sandboxapi.moneygram.com
+  tags:
+  - Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/moneygram-transfers-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-transfers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-oauth-oauthid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-post-v1-accounts-validate-response-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-put-transactions-mgitransactionid-status-request-schema.json
+  - type: JSONSchema
+    url: json-schema/moneygram-get-reference-data-v1-v1-id-response-schema.json
 x-coverage:
   state: unreadable
   reason: js-rendered-docs

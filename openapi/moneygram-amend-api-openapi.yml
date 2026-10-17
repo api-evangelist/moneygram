@@ -1,0 +1,77 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram Amend API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: Amend
+paths:
+  /amend/v1/transactions:
+    get:
+      operationId: get_amend_v1_transactions
+      tags:
+      - Amend
+      summary: GET /amend/v1/transactions
+      x-source: https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+      parameters:
+      - name: agentPartnerId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: referenceNumber
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: targetAudience
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: userLanguage
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: 'curl --request GET  --url ''https://sandboxapi.moneygram.com/amend/v1/transactions?targetAudience=AGENT_FACING&userLanguage=EN-US&agentPartnerId=30150519&referenceNumber=93609598''  --header ''X-MG-ClientRequestId: 4c79b06f-a2af-4859-82c8-28cbb0bf361b''  --header ''accept: application/json''  --header ''authorization: Bearer 7wD14cN6AqHfhQG2GTLGZwOXPDI1''
+
+          ```'
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

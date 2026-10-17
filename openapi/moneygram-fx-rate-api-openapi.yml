@@ -1,0 +1,82 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram Fx Rate API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: Fx Rate
+paths:
+  /fx-rate/v1/rates:
+    get:
+      operationId: get_fx_rate_v1_rates
+      tags:
+      - Fx Rate
+      summary: Retrieve a Rate
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+      parameters:
+      - name: originatingCountry
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The originating country for the FX rate lookup
+      - name: sendCurrency
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The currency being sent
+      - name: destinationCountry
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The destination country for the FX rate lookup
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFxRateV1RatesResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetFxRateV1RatesResponse:
+      type: object
+      properties:
+        rates:
+          type: array
+          description: List of FX rates for each service option available to the given destination country
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

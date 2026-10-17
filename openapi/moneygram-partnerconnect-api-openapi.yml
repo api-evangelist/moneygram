@@ -1,0 +1,94 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram Partnerconnect API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: Partnerconnect
+paths:
+  /partnerconnect/v1/transactions/{transactionid}/status:
+    put:
+      operationId: put_partnerconnect_v1_transactions_transactionid_status
+      tags:
+      - Partnerconnect
+      summary: PUT /partnerconnect/v1/transactions/{transactionId}/status
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+      parameters:
+      - name: transactionid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutPartnerconnectV1TransactionsTransactionidStatusRequest'
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutPartnerconnectV1TransactionsTransactionidStatusResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -X 'PUT'  'https://extadpartner.moneygram.com/partnerconnect/v1/transactions/12345678901234/status'  -H 'accept: application/json'  -H 'Authorization: Basic dGVzdDp0ZXN0'  -H 'Content-Type: application/json'  -H 'X-MG-ClientRequestId: 8f14e45f-ceea-467a-a3a6-4e6b4d3a9c2f'  -d '{\n \"partnerTransactionId\": \"PTX-2026-001234\",\n \"reasonCode\": \"01504\",\n \"partnerReasonMessage\": \"Transaction completed"
+components:
+  schemas:
+    PutPartnerconnectV1TransactionsTransactionidStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        mgiTransactionId:
+          type: string
+        requestId:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    PutPartnerconnectV1TransactionsTransactionidStatusRequest:
+      type: object
+      properties:
+        partnerTransactionId:
+          type: string
+        reasonCode:
+          type: string
+        partnerReasonMessage:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

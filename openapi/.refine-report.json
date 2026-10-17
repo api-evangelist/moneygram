@@ -1,0 +1,26 @@
+{
+  "provider": "moneygram",
+  "sources": [
+    "_ae-authored/moneygram-openapi-generated.yml"
+  ],
+  "outputs": [
+    "moneygram-accounts-api-openapi.yml",
+    "moneygram-amend-api-openapi.yml",
+    "moneygram-fx-rate-api-openapi.yml",
+    "moneygram-oauth-api-openapi.yml",
+    "moneygram-partnerconnect-api-openapi.yml",
+    "moneygram-reference-data-api-openapi.yml",
+    "moneygram-transactions-api-openapi.yml",
+    "moneygram-transfer-api-openapi.yml",
+    "moneygram-transfers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "moneygram-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+9 apis, 9 total)"
+  ],
+  "skipped": []
+}

@@ -1,0 +1,138 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram Transfers API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: Transfers
+paths:
+  /v1/transfers:
+    post:
+      operationId: post_v1_transfers
+      tags:
+      - Transfers
+      summary: Transfer Funds
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1TransfersRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1TransfersResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostV1TransfersResponse:
+      type: object
+      properties:
+        response.responseCode:
+          type: string
+          description: Transaction processing status.
+        response.message:
+          type: string
+          description: Human‑readable status message.
+        partnerTransactionId:
+          type: string
+          description: Optional partner transaction reference.
+    PostV1TransfersRequest:
+      type: object
+      properties:
+        transaction.mgiTransactionId:
+          type: string
+          description: 'Unique MoneyGram transaction identifier. Format: XXXXXXXX0000MMddYYYY'
+        transaction.receiveCountryCode:
+          type: string
+          description: ISO 3166-1 alpha-3 country code where funds are credited.
+        transaction.sendCountryCode:
+          type: string
+          description: ISO 3166-1 alpha-3 country code where funds originate.
+        transaction.receiveAmount.value:
+          type: number
+          description: Transaction receive amount.
+        transaction.receiveAmount.currencyCode:
+          type: string
+          description: ISO 4217 currency code.
+        transaction.sender.person.firstName:
+          type: string
+          description: Sender first name.
+        transaction.sender.person.middleName:
+          type: string
+          description: Sender middle name.
+        transaction.sender.person.lastName:
+          type: string
+          description: Sender last name.
+        transaction.sender.person.secondLastName:
+          type: string
+          description: Sender second last name.
+        transaction.receiver.person.firstName:
+          type: string
+          description: Beneficiary first name.
+        transaction.receiver.person.middleName:
+          type: string
+          description: Beneficiary middle name.
+        transaction.receiver.person.lastName:
+          type: string
+          description: Beneficiary last name.
+        transaction.receiver.person.secondLastName:
+          type: string
+          description: Beneficiary second last name.
+        accountCode:
+          type: string
+          description: Bank code, routing code, wallet provider name, or IFSC.
+        accountNumber:
+          type: string
+          description: Beneficiary account or wallet number.
+        transaction.additionalData[]:
+          type: array
+          description: Supplementary key‑value pairs required for certain corridors or regulations.
+      required:
+      - transaction.mgiTransactionId
+      - transaction.receiveCountryCode
+      - transaction.sendCountryCode
+      - transaction.receiveAmount.value
+      - transaction.receiveAmount.currencyCode
+      - transaction.sender.person.firstName
+      - transaction.sender.person.lastName
+      - transaction.receiver.person.firstName
+      - transaction.receiver.person.lastName
+      - accountCode
+      - accountNumber
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

@@ -1,0 +1,121 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram OAuth API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: OAuth
+paths:
+  /oauth/{oauthid}:
+    get:
+      operationId: get_oauth_oauthid
+      tags:
+      - OAuth
+      summary: Get Access Token
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+      parameters:
+      - name: oauthid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: grant_type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The value of this field should always be "client_credentials".
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Basic authentication header containing base64‑encoded client_id:client_secret.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOauthOauthidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at oauthId
+components:
+  schemas:
+    GetOauthOauthidResponse:
+      type: object
+      properties:
+        refresh_token_expires_in:
+          type: string
+          description: Optional.
+        api_product_list:
+          type: array
+          description: Optional.
+        api_product_list_json:
+          type: array
+          description: Optional.
+        organization_name:
+          type: string
+          description: Optional.
+        developer.email:
+          type: string
+          description: Optional.
+        token_type:
+          type: string
+          description: Optional.
+        issued_at:
+          type: string
+          description: Optional.
+        client_id:
+          type: string
+          description: Optional.
+        access_token:
+          type: string
+          description: Required.
+        application_name:
+          type: string
+          description: Optional.
+        scope:
+          type: string
+          description: Optional.
+        expires_in:
+          type: integer
+          description: Required. Number of seconds until the token expires.
+        refresh_count:
+          type: integer
+          description: Optional.
+        status:
+          type: string
+          description: Optional.
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

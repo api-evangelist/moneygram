@@ -1,0 +1,146 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram Accounts API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: Accounts
+paths:
+  /v1/accounts/validate:
+    post:
+      operationId: post_v1_accounts_validate
+      tags:
+      - Accounts
+      summary: Confirm the receiver's account or wallet before disbursement, verify that the…
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1AccountsValidateRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1AccountsValidateResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostV1AccountsValidateRequest:
+      type: object
+      properties:
+        sender.person.firstName:
+          type: string
+          description: Sender first name.
+        sender.person.middleName:
+          type: string
+          description: Sender middle name.
+        sender.person.lastName:
+          type: string
+          description: Sender last name.
+        sender.person.secondLastName:
+          type: string
+          description: Sender second last name.
+        receiver.person.firstName:
+          type: string
+          description: Beneficiary first name.
+        receiver.person.middleName:
+          type: string
+          description: Beneficiary middle name.
+        receiver.person.lastName:
+          type: string
+          description: Beneficiary last name.
+        receiver.person.secondLastName:
+          type: string
+          description: Beneficiary second last name.
+        receiveAmount.value:
+          type: number
+          description: Receive amount in transacting currency. Must be greater than 0.
+        receiveAmount.currencyCode:
+          type: string
+          description: ISO 4217 currency code.
+        accountCode:
+          type: string
+          description: Bank code, routing code, wallet provider, or IFSC code — used to route the credit to the beneficiary institution.
+        accountNumber:
+          type: string
+          description: Beneficiary bank account or wallet number. Format agreed bilaterally with the partner.
+        receiveCountryCode:
+          type: string
+          description: ISO 3166-1 alpha-3 country code where funds are credited.
+        additionalData:
+          type: array
+          description: Key‑value pairs for regulatory and routing purposes. All supported keys are always included (values may be empty).
+      required:
+      - receiver.person.firstName
+      - receiver.person.lastName
+      - receiveAmount.value
+      - receiveAmount.currencyCode
+      - accountCode
+      - accountNumber
+      - receiveCountryCode
+    PostV1AccountsValidateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Optional response message.
+        receiver.accountTitle:
+          type: string
+          description: Name associated with the account.
+        receiver.accountStatus:
+          type: string
+          description: Account status.
+        receiver.accountCurrency:
+          type: string
+          description: Currency of the account.
+        receiver.nameMatchPercentage:
+          type: string
+          description: Percentage match between the beneficiary name and the institution's records.
+        receiver.accountType:
+          type: string
+          description: Type of account.
+        error.code:
+          type: string
+          description: MoneyGram-defined error code.
+        error.message:
+          type: string
+          description: Human‑readable error message.
+        error.target:
+          type: string
+          description: Field causing the error.
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

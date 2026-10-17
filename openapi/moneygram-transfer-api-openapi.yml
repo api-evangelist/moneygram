@@ -1,0 +1,88 @@
+openapi: 3.2.0
+info:
+  title: MoneyGram Transfer API
+  version: '2026-10-15'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-15: 12 operation(s) read from 11 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; MoneyGram has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 4
+    documentation: 8
+    pages-with-code: 6
+    pages-read: 11
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-15'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/o-auth-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+  - https://developer.moneygram.com/moneygram-developer/docs/status-webhook-api
+  - https://developer.moneygram.com/moneygram-developer/docs/transfer-funds-api
+  - https://developer.moneygram.com/moneygram-developer/docs/account-validate-api
+  - https://developer.moneygram.com/moneygram-developer/docs/reference-data-api-overview
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/amend-retrieve-by-reference-number-200-ok
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-countries-headers
+  - https://developer.moneygram.com/moneygram-developer/recipes/reference-data-retrieve-currencies-200-ok
+servers:
+- url: https://sandboxapi.moneygram.com
+security:
+- bearer: []
+tags:
+- name: Transfer
+paths:
+  /transfer/v1/transactions/quote:
+    post:
+      operationId: post_transfer_v1_transactions_quote
+      tags:
+      - Transfer
+      summary: Quote a transaction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /transfer/v1/transactions/{transactionid}:
+    put:
+      operationId: put_transfer_v1_transactions_transactionid
+      tags:
+      - Transfer
+      summary: Update a transaction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+      parameters:
+      - name: transactionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /transfer/v1/transactions/{transactionid}/commit:
+    put:
+      operationId: put_transfer_v1_transactions_transactionid_commit
+      tags:
+      - Transfer
+      summary: Commit a transaction
+      x-source: https://developer.moneygram.com/moneygram-developer/docs/transfer-api
+      parameters:
+      - name: transactionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
