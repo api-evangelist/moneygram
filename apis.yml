@@ -24,7 +24,16 @@ created: '2026-10-14'
 
 modified: '2026-10-14'
 
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-17
 tags:
+- Money
+- Payments
+- Transfer
+- Fintech
+- Global
+tags_raw:
 - Money
 - Payments
 - Transfer
@@ -96,6 +105,8 @@ apis:
   humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
   baseURL: https://sandboxapi.moneygram.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -140,6 +151,8 @@ apis:
   humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
   baseURL: https://sandboxapi.moneygram.com
   tags:
+  - FXRate
+  tags_raw:
   - Fx Rate
   properties:
   - type: OpenAPI
@@ -162,6 +175,8 @@ apis:
   humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
   baseURL: https://sandboxapi.moneygram.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth
   properties:
   - type: OpenAPI
@@ -228,6 +243,8 @@ apis:
   humanURL: https://developer.moneygram.com/moneygram-developer/docs/fxrate-api
   baseURL: https://sandboxapi.moneygram.com
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
