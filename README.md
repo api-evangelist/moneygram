@@ -64,5 +64,123 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-MoneyGram is a company surfaced via the API Evangelist harvest backlog (source: tag-qc) and added to the network as a stub for full-pipeline profiling.
-- https://www.moneygram.com
+MoneyGram is a global money transfer and payment services company, enabling individuals and businesses to send and receive funds across more than 200 countries and territories. Founded in 1940, MoneyGram offers online, in‑app, and in‑person transfer options, with a network of agents and retail locations worldwide. The platform emphasizes security, competitive exchange rates, and multiple payout methods, including bank deposits, cash pickup, and digital wallets.
+
+**Areas:** Money · Payments · Transfer · Fintech · Global
+
+## MoneyGram on APIs.io
+
+Everything profiled for MoneyGram is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/moneygram/](https://apis.io/providers/moneygram/)** — or go straight to one of the APIs or properties below.
+
+### APIs (9)
+
+- [MoneyGram Accounts API](https://apis.io/apis/moneygram/moneygram-accounts-api/) — The Accounts API from MoneyGram — 1 operation(s) for accounts.
+- [MoneyGram Amend API](https://apis.io/apis/moneygram/moneygram-amend-api/) — The Amend API from MoneyGram — 1 operation(s) for amend.
+- [MoneyGram Fx Rate API](https://apis.io/apis/moneygram/moneygram-fx-rate-api/) — The Fx Rate API from MoneyGram — 1 operation(s) for fx rate.
+- [MoneyGram OAuth API](https://apis.io/apis/moneygram/moneygram-oauth-api/) — The Oauth API from MoneyGram — 1 operation(s) for oauth.
+- [MoneyGram Partnerconnect API](https://apis.io/apis/moneygram/moneygram-partnerconnect-api/) — The Partnerconnect API from MoneyGram — 1 operation(s) for partnerconnect.
+- [MoneyGram Reference Data API](https://apis.io/apis/moneygram/moneygram-reference-data-api/) — The Reference Data API from MoneyGram — 2 operation(s) for reference data.
+- [MoneyGram Transactions API](https://apis.io/apis/moneygram/moneygram-transactions-api/) — The Transactions API from MoneyGram — 1 operation(s) for transactions.
+- [MoneyGram Transfer API](https://apis.io/apis/moneygram/moneygram-transfer-api/) — The Transfer API from MoneyGram — 3 operation(s) for transfer.
+- [MoneyGram Transfers API](https://apis.io/apis/moneygram/moneygram-transfers-api/) — The Transfers API from MoneyGram — 1 operation(s) for transfers.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### JSON Schema (6)
+
+The data models the API reads and writes.
+
+- [GetOauthOauthidResponse](https://apis.io/schemas/moneygram/moneygram-get-oauth-oauthid-response/)
+- [GetReferenceDataV1V1IdResponse](https://apis.io/schemas/moneygram/moneygram-get-reference-data-v1-v1-id-response/)
+- [PostV1AccountsValidateRequest](https://apis.io/schemas/moneygram/moneygram-post-v1-accounts-validate-request/)
+- [PostV1AccountsValidateResponse](https://apis.io/schemas/moneygram/moneygram-post-v1-accounts-validate-response/)
+- [PostV1TransfersRequest](https://apis.io/schemas/moneygram/moneygram-post-v1-transfers-request/)
+- [PutTransactionsMgitransactionidStatusRequest](https://apis.io/schemas/moneygram/moneygram-put-transactions-mgitransactionid-status-request/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Moneygram Context](https://apis.io/jsonld/moneygram/moneygram-context/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [MoneyGram API Rules](https://apis.io/rules/moneygram/moneygram-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Moneygram Authentication](https://apis.io/security/moneygram/moneygram-authentication/)
+- [Moneygram Domain Security](https://apis.io/security/moneygram/moneygram-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.moneygram.com)
+- [Documentation](https://developer.moneygram.com/moneygram-developer/docs)
+- [Getting started](https://developer.moneygram.com/moneygram-developer/docs/get-started)
+- [API reference](https://developer.moneygram.com/moneygram-developer/reference)
+- [Support](https://www.moneygram.com/us/en/help-center)
+- [Blog](https://www.moneygram.com/blog)
+- [Trust centre](https://trust.moneygram.com/)
+- [Terms of service](https://www.moneygram.com/us/en/help-center/terms-and-conditions)
+- [Privacy policy](https://www.moneygram.com/us/en/privacy-center)
+
+## API Evangelist rating
+
+**Kin Score 37.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 25.6 |
+| Contract governance | 19.7 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 57.1 |
+| Access clarity | 42.1 |
+
+**Agent readiness 20.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.8** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/moneygram/](https://apis.io/providers/moneygram/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for MoneyGram: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/moneygram/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
